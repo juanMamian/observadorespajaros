@@ -5,7 +5,8 @@
       
     </div>
     <div id="zonaVideo">
-        <video controls src="@/assets/presentacion.webm" id="videoPresentacion">Video no compatible</video>
+        <!-- <video controls src="https://youtu.be/um-pobNK9H4" id="videoPresentacion">Video no compatible</video> -->
+        <iframe src="https://www.youtube.com/embed/um-pobNK9H4" id="videoPresentacion" title="Video promocional" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;" allowfullscreen></iframe>
       </div>
     <div id="bloqueDonacion" @click.stop="" :style="[offsetBloqueDonaciones]">
       <div id="cartelDonacion">
@@ -18,8 +19,14 @@
       </div>
 
       <div id="listaRegalos">
-        <img src="@/assets/manilla.png" width="90" alt="Manilla" class="regalo">
-        <img src="@/assets/lapiz.png" width="90" alt="Lapiz artesanal" class="regalo">
+        <img src="@/assets/manilla.png" :style="{backgroundColor: mostrandoInfoRegalo==='manillas'?'#06060645':''}" width="90" alt="Manilla" class="regalo" @click="mostrandoInfoRegalo='manillas'">
+        <!-- <img src="@/assets/lapiz.png" :style="{backgroundColor: mostrandoInfoRegalo==='lapiz'?'#06060645':''}" width="90" alt="Lapiz artesanal" class="regalo" @click="mostrandoInfoRegalo='lapiz'"> -->
+        <div class="informacionRegalo" id="informacionManillas" v-show="mostrandoInfoRegalo==='manillas'">
+          ¡Un combo de tres manillas!
+        </div>
+        <!-- <div class="informacionRegalo" id="informacionManillas" v-show="mostrandoInfoRegalo==='lapiz'">
+          ¡Un lápiz con un muñequito en el borrador!
+        </div> -->
       </div>
 
       <div id="bloqueContactoDonacion">
@@ -47,6 +54,7 @@ export default {
   data(){
     return {
       mostrandoBloqueDonacion:false,
+      mostrandoInfoRegalo:'manillas'
     }
   },
   computed:{
@@ -66,6 +74,9 @@ export default {
 </script>
 
 <style>
+body{
+  background-color: #2e9d88;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -74,17 +85,21 @@ export default {
   color: #2c3e50;
   margin-top: 10px;
 }
+#titulo{
+  color: #141b22;
+}
 #zonaVideo{
   height: 70vh;
 }
 #videoPresentacion{
   height: 100%;
+  width: 100%;
 }
 #imagenAportarDonacion{
   border: 1px solid black;
   border-radius: 50%;
   cursor: pointer;
-  background-color: coral;
+  background-color: #50efff;
   display: block;
   margin: 0px auto;
 }
@@ -93,7 +108,7 @@ export default {
   left: 50%;
   transform: translateX(-50%);
   border: 2px solid rgb(33, 85, 87);
-  background-color: #dddd64;
+  background-color: #2b8993;
   border-radius: 40px;
   width: min(500px, 90%);
   transition: top 1s, bottom 1s;
@@ -118,11 +133,20 @@ export default {
 .regalo:hover{
   background-color: rgba(128, 128, 128, 0.151);
 }
+.informacionRegalo{
+  padding: 5px;
+  border: 1px solid #d4c2b4;
+  border-radius: 15px;
+  margin: 10px 10%;
+  margin-bottom: 40px;
+  background-color: #06060645;
+  color: white;
+}
 #bloqueReceptorDonaciones{
   display: flex;
   padding: 10px 30px;
   border-radius: 50px;
-  background-color: yellow;
+  background-color: #c14e4e;
   margin: 20px 50px;
 }
 
