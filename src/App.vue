@@ -10,12 +10,11 @@
       </div>
     <div id="bloqueDonacion" @click.stop="" :style="[offsetBloqueDonaciones]">
       <div id="cartelDonacion">
-        <img src="@/assets/aportarDonacion.png" width="60px" alt="Aportar" title="¡Quiero apoyar este proyecto!" id="imagenAportarDonacion" @click.stop="mostrandoBloqueDonacion=true">
+        <img src="@/assets/aportarDonacion.png" width="60px" alt="Aportar" title="¡Quiero apoyar este proyecto!" id="imagenAportarDonacion" @click.stop="mostrandoBloqueDonacion=!mostrandoBloqueDonacion">
       </div>
 
       <div class="anuncio" id="anuncioRegalo">
-        ¡En agradecimiento por tu apoyo puedes recibir de nuestra parte uno de estos
-        objetos!
+        En agradecimiento por tu apoyo puedes recibir de nuestra parte...
       </div>
 
       <div id="listaRegalos">
@@ -30,14 +29,14 @@
       </div>
 
       <div id="bloqueContactoDonacion">
-        <div class="anuncio">
+        <div class="anuncio" style="color:white">
           Para realizar tu donación comunicate con:
         </div>
         <div id="bloqueReceptorDonaciones">
           <img src="@/assets/receptorDonaciones.png" alt="Responsable" title="¡El encargado de las donaciones!" width="60" id="receptorDonaciones">
           <div id="infoContactoReceptorDonaciones">
-            <div id="nombreReceptorDonaciones">Laura Victoria Mamián López</div>
-            <div id="wsReceptorDonaciones"> <img width="20" src="@/assets/iconoWs.png" alt="Whatsapp"> 3216436869</div>
+            <div id="nombreReceptorDonaciones" style="color:white">Laura Victoria Mamián López</div>
+            <div id="wsReceptorDonaciones" style="color:white"> <img width="20" src="@/assets/iconoWs.png" alt="Whatsapp"> 3216436869</div>
           </div>
         </div>
       </div>
@@ -123,6 +122,7 @@ body{
 #anuncioRegalo{
   margin-top: 20px;
   padding: 0px 30px;
+  color: white;
 }
 .regalo{
   border: 1px solid cadetblue;
