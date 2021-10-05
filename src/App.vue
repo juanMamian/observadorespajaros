@@ -1,16 +1,29 @@
 <template>
-  <div id="app" @click="mostrandoBloqueDonacion=false">
+  <div id="app" @click="mostrandoBloqueDonacion = false">
     <div id="titulo">
       <h1>Aves Maestras</h1>
-      
     </div>
     <div id="zonaVideo">
-        <!-- <video controls src="https://youtu.be/um-pobNK9H4" id="videoPresentacion">Video no compatible</video> -->
-        <iframe src="https://www.youtube.com/embed/um-pobNK9H4" id="videoPresentacion" title="Video promocional" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;" allowfullscreen></iframe>
-      </div>
+      <!-- <video controls src="https://youtu.be/um-pobNK9H4" id="videoPresentacion">Video no compatible</video> -->
+      <iframe
+        src="https://www.youtube.com/embed/um-pobNK9H4"
+        id="videoPresentacion"
+        title="Video promocional"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
+        allowfullscreen
+      ></iframe>
+    </div>
     <div id="bloqueDonacion" @click.stop="" :style="[offsetBloqueDonaciones]">
       <div id="cartelDonacion">
-        <img src="@/assets/aportarDonacion.png" width="60px" alt="Aportar" title="¡Quiero apoyar este proyecto!" id="imagenAportarDonacion" @click.stop="mostrandoBloqueDonacion=!mostrandoBloqueDonacion">
+        <img
+          src="@/assets/aportarDonacion.png"
+          width="60px"
+          alt="Aportar"
+          title="¡Quiero apoyar este proyecto!"
+          id="imagenAportarDonacion"
+          @click.stop="mostrandoBloqueDonacion = !mostrandoBloqueDonacion"
+        />
       </div>
 
       <div class="anuncio" id="anuncioRegalo">
@@ -18,10 +31,24 @@
       </div>
 
       <div id="listaRegalos">
-        <img src="@/assets/manilla.png" :style="{backgroundColor: mostrandoInfoRegalo==='manillas'?'#06060645':''}" width="90" alt="Manilla" class="regalo" @click="mostrandoInfoRegalo='manillas'">
+        <img
+          src="@/assets/manilla.png"
+          :style="{
+            backgroundColor:
+              mostrandoInfoRegalo === 'manillas' ? '#06060645' : '',
+          }"
+          width="90"
+          alt="Manilla"
+          class="regalo"
+          @click="mostrandoInfoRegalo = 'manillas'"
+        />
         <!-- <img src="@/assets/lapiz.png" :style="{backgroundColor: mostrandoInfoRegalo==='lapiz'?'#06060645':''}" width="90" alt="Lapiz artesanal" class="regalo" @click="mostrandoInfoRegalo='lapiz'"> -->
-        <div class="informacionRegalo" id="informacionManillas" v-show="mostrandoInfoRegalo==='manillas'">
-          ¡Un combo de tres manillas!
+        <div
+          class="informacionRegalo"
+          id="informacionManillas"
+          v-show="mostrandoInfoRegalo === 'manillas'"
+        >
+          ¡Una manilla sorpresa!
         </div>
         <!-- <div class="informacionRegalo" id="informacionManillas" v-show="mostrandoInfoRegalo==='lapiz'">
           ¡Un lápiz con un muñequito en el borrador!
@@ -29,52 +56,63 @@
       </div>
 
       <div id="bloqueContactoDonacion">
-        <div class="anuncio" style="color:white">
+        <div class="anuncio" style="color: white">
           Para realizar tu donación comunicate con:
         </div>
-        <div id="bloqueReceptorDonaciones">
-          <img src="@/assets/receptorDonaciones.png" alt="Responsable" title="¡El encargado de las donaciones!" width="60" id="receptorDonaciones">
-          <div id="infoContactoReceptorDonaciones">
-            <div id="nombreReceptorDonaciones" style="color:white">Laura Victoria Mamián López</div>
-            <div id="wsReceptorDonaciones" style="color:white"> <img width="20" src="@/assets/iconoWs.png" alt="Whatsapp"> 3216436869</div>
+        <a href="https://wa.me/573216436869">
+          <div id="bloqueReceptorDonaciones">
+            <img
+              src="@/assets/receptorDonaciones.png"
+              alt="Responsable"
+              title="¡El encargado de las donaciones!"
+              width="60"
+              id="receptorDonaciones"
+            />
+            <div id="infoContactoReceptorDonaciones">
+              <div id="nombreReceptorDonaciones" style="color: white">
+                Laura Victoria Mamián López
+              </div>
+              <div id="wsReceptorDonaciones" style="color: white">
+                <img width="20" src="@/assets/iconoWs.png" alt="Whatsapp" />
+                3216436869
+              </div>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-
 export default {
-  name: 'App',
-  components: {
-  },
-  data(){
+  name: "App",
+  components: {},
+  data() {
     return {
-      mostrandoBloqueDonacion:false,
-      mostrandoInfoRegalo:'manillas'
-    }
+      mostrandoBloqueDonacion: false,
+      mostrandoInfoRegalo: "manillas",
+    };
   },
-  computed:{
-    offsetBloqueDonaciones(){
-      if(this.mostrandoBloqueDonacion){
+  computed: {
+    offsetBloqueDonaciones() {
+      if (this.mostrandoBloqueDonacion) {
         return {
-          top: '20%'                
-        }
+          top: "20%",
+        };
       }
-      return{
-        top:'100vh'
-      }
-      
-    }
-  }
-}
+      return {
+        top: "100vh",
+      };
+    },
+  },
+};
 </script>
 
 <style>
-body{
+body {
   background-color: #2e9d88;
+  font-family: 'Fira Sans', sans-serif;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -84,17 +122,17 @@ body{
   color: #2c3e50;
   margin-top: 10px;
 }
-#titulo{
+#titulo {
   color: #141b22;
 }
-#zonaVideo{
+#zonaVideo {
   height: 70vh;
 }
-#videoPresentacion{
+#videoPresentacion {
   height: 100%;
   width: 100%;
 }
-#imagenAportarDonacion{
+#imagenAportarDonacion {
   border: 1px solid black;
   border-radius: 50%;
   cursor: pointer;
@@ -102,7 +140,7 @@ body{
   display: block;
   margin: 0px auto;
 }
-#bloqueDonacion{
+#bloqueDonacion {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
@@ -112,28 +150,28 @@ body{
   width: min(500px, 90%);
   transition: top 1s, bottom 1s;
 }
-#cartelDonacion{
+#cartelDonacion {
   position: absolute;
   bottom: 105%;
   left: 50%;
   transform: translateX(-50%);
 }
 
-#anuncioRegalo{
+#anuncioRegalo {
   margin-top: 20px;
   padding: 0px 30px;
   color: white;
 }
-.regalo{
+.regalo {
   border: 1px solid cadetblue;
   border-radius: 50%;
   cursor: pointer;
   margin: 0px 20px;
 }
-.regalo:hover{
+.regalo:hover {
   background-color: rgba(128, 128, 128, 0.151);
 }
-.informacionRegalo{
+.informacionRegalo {
   padding: 5px;
   border: 1px solid #d4c2b4;
   border-radius: 15px;
@@ -142,15 +180,24 @@ body{
   background-color: #06060645;
   color: white;
 }
-#bloqueReceptorDonaciones{
+#bloqueReceptorDonaciones {
   display: flex;
   padding: 10px 30px;
   border-radius: 50px;
   background-color: #c14e4e;
   margin: 20px 50px;
-}
+  cursor: pointer;
+  text-decoration: none;
 
-#receptorDonaciones{
+}
+#bloqueReceptorDonaciones:hover {
+  background-color: #c56464;
+}
+#receptorDonaciones {
   border-radius: 50%;
 }
+a{
+  text-decoration: none;
+}
+
 </style>
